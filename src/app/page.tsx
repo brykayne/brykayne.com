@@ -19,12 +19,6 @@ export default function Home() {
           <Orb onClick={() => setModalOpen(true)} />
         </div>
       </div>
-      <div className="command">
-        <p className="prompt"></p>
-        <div id="blog-posts" className="blog-posts">
-          {/* Render blog posts here */}
-        </div>
-      </div>
       
       {isModalOpen && (
         <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>

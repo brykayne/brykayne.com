@@ -72,10 +72,6 @@ a:hover {
   margin: 0 0 10px 0;
 }
 
-.blog-posts {
-  margin-top: 20px;
-}
-
 @media (max-width: 600px) {
   .command div {
     display: flex;
