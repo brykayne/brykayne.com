@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TITLE_HERE - My Terminal Blog</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="terminal">
+        <div class="command">
+            <p class="prompt">cat posts/DATE_HERE_TITLE_HERE.md</p>
+            <div class="post-content">
+                <h1>TITLE_HERE</h1>
+                <p>Published: DATE_HERE</p>
+                
+                <article id="markdown-content">
+                    <!-- Your markdown content will be rendered here -->
+                </article>
+                
+                <p class="prompt"><a href="../index.html">cd ..</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function renderMarkdown() {
+            try {
+                // Get the post filename from URL parameters
+                const urlParams = new URLSearchParams(window.location.search);
+                const postFile = urlParams.get('post');
+                
+                // Fetch the markdown file
+                const response = await fetch('../posts/' + postFile);
+                const markdown = await response.text();
+                
+                // Remove the title and date from template since they're in the markdown
+                document.querySelector('h1').remove();
+                document.querySelector('p').remove();
+                
+                // Render markdown to HTML
+                const content = marked.parse(markdown);
+                document.getElementById('markdown-content').innerHTML = content;
+                
+                // Update the title and prompt
+                const postName = postFile.split('.')[0];
+                document.title = postName;
+                document.querySelector('.prompt').textContent = 
+                    `cat posts/${postFile}`;
+            } catch (error) {
+                console.error('Error loading markdown:', error);
+                document.getElementById('markdown-content').innerHTML = 
+                    '<p>Error loading content...</p>';
+            }
+        }
+
+        // Initialize markdown rendering
+        renderMarkdown();
+    </script>
+</body>
+</html>

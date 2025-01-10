@@ -1,95 +1,54 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+
+import React, { useState } from 'react';
+import Header from './components/Header';
+import './globals.css';
+import Orb from './components/Orb';
+import Modal from './components/Modal';
 
 export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [isModalOpen, setModalOpen] = useState(false);
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+  return (
+    <div className="terminal">
+      <Header />
+      <div className="command">
+        <p>About Bryan</p>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <span>Bryan is a product leader who builds things</span>
+          <Orb onClick={() => setModalOpen(true)} />
         </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
+      <div className="command">
+        <p className="prompt"></p>
+        <div id="blog-posts" className="blog-posts">
+          {/* Render blog posts here */}
+        </div>
+      </div>
+      
+      {isModalOpen && (
+        <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
+          <div>
+
+<br />
+<br />
+
+[Ex-Peloton]  [Ex-SuperRare]  [Ex-Chase] 
+
+<br />
+<br />
+
+================================
+
+<br />
+<br />
+
+Bryan is a seasoned product leader with a decade of experience leading small and large teams to create and scale global products. His passion lies at the intersection of technology and creativity, where he leverages the latest tech advancements like blockchain & NFTs. Alongside his extensive career in product leadership, Bryan has over 1000+ hours of public speaking, acting, and stand-up comedy experience. Bryan’s unique background has honed his ability to develop products that will bring billions onchain.
+          
+<br />
+          </div>
+        </Modal>
+      )}
     </div>
   );
 }
