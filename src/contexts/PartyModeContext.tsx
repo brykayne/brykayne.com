@@ -3,6 +3,7 @@
 import React, { createContext, useContext, useState, useCallback } from 'react';
 import Confetti from 'react-confetti';
 import useWindowSize from 'react-use/lib/useWindowSize';
+import { supabase } from '@/lib/supabase';
 
 interface PartyModeContextType {
   isPartyMode: boolean;
@@ -33,7 +34,18 @@ export function PartyModeProvider({ children }: { children: React.ReactNode }) {
     }
   }, [isPartyMode, handleClick]);
 
-  const togglePartyMode = () => setIsPartyMode(!isPartyMode);
+  const togglePartyMode = async () => {
+    const newPartyMode = !isPartyMode;
+    setIsPartyMode(newPartyMode);
+    
+    if (newPartyMode) {
+      // Increment the counter when party mode is activated
+      const { error } = await supabase.rpc('increment_party_counter');
+      if (error) {
+        console.error('Error incrementing party counter:', error);
+      }
+    }
+  };
 
   return (
     <PartyModeContext.Provider value={{ isPartyMode, togglePartyMode }}>

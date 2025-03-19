@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { PartyModeProvider } from './contexts/PartyModeContext';
+import { PartyModeProvider } from '@/contexts/PartyModeContext';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

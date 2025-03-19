@@ -1,0 +1,7 @@
+.counter {
+  font-family: var(--font-geist-mono);
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+} 

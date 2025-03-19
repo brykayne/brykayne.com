@@ -2,7 +2,7 @@
 
 import React, { useState, ReactNode } from 'react';
 import './Modal.css';
-import { usePartyMode } from '../contexts/PartyModeContext';
+import { usePartyMode } from '@/contexts/PartyModeContext';
 
 interface ModalProps {
   isOpen: boolean;
