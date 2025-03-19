@@ -17,6 +17,13 @@ export const metadata: Metadata = {
   title: "BryKayne.com",
   description: "Product leader building things, like this jenky site.",
   metadataBase: new URL('https://brykayne.com'),
+  icons: {
+    icon: [
+      { url: '/api/favicon', type: 'image/png', sizes: '32x32' }
+    ],
+    shortcut: '/api/favicon',
+    apple: '/api/favicon',
+  },
   openGraph: {
     title: 'BryKayne.com',
     description: 'Product leader building things, like this jenky site.',
