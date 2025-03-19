@@ -16,6 +16,35 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "BryKayne.com",
   description: "Product leader building things, like this jenky site.",
+  metadataBase: new URL('https://brykayne.com'),
+  openGraph: {
+    title: 'BryKayne.com',
+    description: 'Product leader building things, like this jenky site.',
+    url: 'https://brykayne.com',
+    siteName: 'BryKayne.com',
+    locale: 'en_US',
+    type: 'website',
+    images: [{
+      url: 'https://brykayne.com/api/og',
+      width: 1200,
+      height: 630,
+      alt: 'BryKayne.com - Product Leader Building Things',
+      type: 'image/png',
+    }]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'BryKayne.com',
+    description: 'Product leader building things, like this jenky site.',
+    creator: '@brykayne',
+    images: ['https://brykayne.com/api/og']
+  },
+  other: {
+    'telegram:channel': '@brykayne',
+    'og:image:type': 'image/png',
+    'og:image:width': '1200',
+    'og:image:height': '630',
+  }
 };
 
 export default function RootLayout({
