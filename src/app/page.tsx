@@ -14,8 +14,8 @@ export default function Home() {
       <Header />
       <div className="command">
         <p>About Bryan</p>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <span>Bryan is a product leader who builds things</span>
+        <div className="command-line">
+          Bryan builds things → → →
           <Orb onClick={() => setIsModalOpen(true)} />
         </div>
       </div>
@@ -24,7 +24,6 @@ export default function Home() {
         <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
           <div>
 
-<br />
 <br />
 
 [Ex-Peloton]  [Ex-SuperRare]  [Ex-Chase] 
@@ -36,8 +35,16 @@ export default function Home() {
 
 <br />
 <br />
-
-Bryan is a seasoned product leader with a decade of experience leading small and large teams to create and scale global products. His passion lies at the intersection of technology and creativity, where he leverages the latest tech advancements like blockchain & NFTs. Alongside his extensive career in product leadership, Bryan has over 1000+ hours of public speaking, acting, and stand-up comedy experience. Bryan's unique background has honed his ability to develop products that will bring billions onchain.
+I'm a passionate and driven product leader with a decade of experience building and scaling innovative products. I've led product development at globally recognized brands like Peloton and JPMorganChase, scaled blockchain startups like SuperRare, and built multiple 0-1 products through my own product consultancy.
+<br />
+<br />
+The products I've launched have generated over $3B in revenue and impacted millions of users.
+<br />
+<br />
+At my core, my mission is to spread joy through connection - a passion shaped by my unconventional background as a stand-up comic and off-Broadway actor before transitioning into product leadership. My blend of technical expertise and dynamic relationship-building skills enables me to lead teams effectively, inspire stakeholders, and create meaningful impact in fast-paced environments.
+<br />
+<br />
+Always happy to connect - whether to chat, collaborate, or swap stories over coffee!
           
 <br />
           </div>

@@ -40,10 +40,7 @@ export function PartyModeProvider({ children }: { children: React.ReactNode }) {
     
     if (newPartyMode) {
       // Increment the counter when party mode is activated
-      const { error } = await supabase.rpc('increment_party_counter');
-      if (error) {
-        console.error('Error incrementing party counter:', error);
-      }
+      await supabase.rpc('increment_party_counter');
     }
   };
 
