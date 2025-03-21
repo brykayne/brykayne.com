@@ -41,18 +41,27 @@
   }
   
   .closeButton, .minimizeButton, .maximizeButton {
+    min-width: 12px;
+    min-height: 12px;
     width: 12px;
     height: 12px;
     border-radius: 50%;
     border: none;
     cursor: pointer;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     font-size: 12px;
+    line-height: 1;
     color: rgba(0, 0, 0, 0.5);
     position: relative;
     z-index: 3;
+    padding: 0;
+    margin: 0;
+    flex-shrink: 0;
+    -webkit-appearance: none;
+    appearance: none;
+    touch-action: manipulation;
   }
   
   .closeButton {
@@ -69,6 +78,15 @@
   
   .closeButton:hover, .minimizeButton:hover, .maximizeButton:hover {
     color: rgba(0, 0, 0, 0.8);
+  }
+  
+  @media (max-width: 600px) {
+    .closeButton, .minimizeButton, .maximizeButton {
+      width: 16px;
+      height: 16px;
+      min-width: 16px;
+      min-height: 16px;
+    }
   }
   
   .modalBody {
